@@ -69,6 +69,35 @@ class PlaceProvider {
         }
     }
     
+    func insertPlace(latitide: Double, longitude: Double, completionHandler: @escaping (Place?) -> Void) {
+        let taskContext = self.newTaskContext()
+        let object = Place(context: taskContext)
+        object.configure(latitude: latitide, longitude: longitude)
+        do {
+            try taskContext.save()
+            let place = placeFetch(place: object)
+            completionHandler(place)
+        } catch {
+            completionHandler(nil)
+        }
+    }
+    
+    func placeFetch(place: Place) -> Place? {
+        let fetchRequest: NSFetchRequest<Place> = Place.fetchRequest()
+        let lat = place.latitude
+        let lng = place.longitude
+        let latlngPredict = NSPredicate(format: "latitude == %lf && longitude == %lf", lat, lng)
+        fetchRequest.predicate = latlngPredict
+        fetchRequest.fetchLimit = 1
+        fetchRequest.returnsObjectsAsFaults = false
+        let place = try? mainContext.fetch(fetchRequest)
+        if let place = place {
+            return place[0]
+        } else {
+            return nil
+        }
+    }
+    
     func fetch(bounds: CoordinateBounds) -> [Place] {
         let minLng = bounds.southWestLng
         let maxLng = bounds.northEastLng
@@ -78,6 +107,7 @@ class PlaceProvider {
         let lngPredict = NSPredicate(format: "longitude >= %lf && longitude <= %lf", minLng, maxLng)
         let latPredict = NSPredicate(format: "latitude >= %lf && latitude <= %lf", minLat, maxLat)
         fetchRequest.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [lngPredict, latPredict])
+        fetchRequest.returnsObjectsAsFaults = false
         return (try? mainContext.fetch(fetchRequest)) ?? []
     }
     

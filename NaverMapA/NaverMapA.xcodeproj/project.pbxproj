@@ -8,14 +8,30 @@
 
 /* Begin PBXBuildFile section */
 		61901DB53EE8A32FCC52335C /* Pods_NaverMapA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40CAD620339B506C86FDA0AC /* Pods_NaverMapA.framework */; };
+		88937866257D3BC000A5B5C5 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88937865257D3BC000A5B5C5 /* SettingTableViewController.swift */; };
+		8893786C257D415400A5B5C5 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8893786A257D415400A5B5C5 /* SettingTableViewCell.swift */; };
+		8893786D257D415400A5B5C5 /* SettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8893786B257D415400A5B5C5 /* SettingTableViewCell.xib */; };
 		8898E855256D914C00CFE5B4 /* ScaleBasedClustering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8898E854256D914C00CFE5B4 /* ScaleBasedClustering.swift */; };
+		88A679FD257E7317004CA6C7 /* NaverMapAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A679FC257E7317004CA6C7 /* NaverMapAPI.swift */; };
+		88A67A02257E73AF004CA6C7 /* Geocoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A67A01257E73AF004CA6C7 /* Geocoding.swift */; };
+		88F1F54F258398EA001A7056 /* DetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F1F54E258398EA001A7056 /* DetailCollectionViewCell.swift */; };
 		997FE8701C4893C3A09145F8 /* Pods_NaverMapATests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87992EA48C88244E5F3BD1C3 /* Pods_NaverMapATests.framework */; };
-		D430320E2570663200BCEB54 /* KMeansClustering.swift in Sources */ = {isa = PBXBuildFile; fileRef = D430320D2570663200BCEB54 /* KMeansClustering.swift */; };
-		C8D647D8256F66FB00E3BB14 /* MainViewController+NMFOverlayImageDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D647D7256F66FB00E3BB14 /* MainViewController+NMFOverlayImageDataSource.swift */; };
+		C816202725789C8A00DF61C4 /* MarkerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C816202625789C8A00DF61C4 /* MarkerFactory.swift */; };
+		C87AE2B22582602400017EA5 /* GetMarkerColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87AE2B12582602400017EA5 /* GetMarkerColor.swift */; };
+		C88B5CDC258740F1006F4133 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88B5CDB258740F1006F4133 /* LaunchViewController.swift */; };
+		C8C1FB4A257F6D4200D98A92 /* UIView+Rendering.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8C1FB49257F6D4200D98A92 /* UIView+Rendering.swift */; };
+		C8D647D8256F66FB00E3BB14 /* MainViewController+NaverMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D647D7256F66FB00E3BB14 /* MainViewController+NaverMap.swift */; };
+		D41830D6257842CF005AD9F0 /* MainViewController+PullUpViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41830D5257842CF005AD9F0 /* MainViewController+PullUpViewDelegate.swift */; };
 		D44558CA25660D79006D9D66 /* JsonPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44558C925660D79006D9D66 /* JsonPlace.swift */; };
 		D44558CF256611DF006D9D66 /* PlaceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44558CE256611DF006D9D66 /* PlaceProvider.swift */; };
 		D44558DB256615CF006D9D66 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44558D9256615CF006D9D66 /* Place.swift */; };
 		D44558E525661638006D9D66 /* NaverMapA.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D44558E325661638006D9D66 /* NaverMapA.xcdatamodeld */; };
+		D44B6FCA25783BD700E912BB /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44B6FC925783BD700E912BB /* DetailViewModel.swift */; };
+		D499BFCD2575C40700EF369E /* DetailCollectionViewListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D499BFCB2575C40700EF369E /* DetailCollectionViewListCell.xib */; };
+		D499BFD42575C41400EF369E /* DetailCollectionViewDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D499BFD22575C41400EF369E /* DetailCollectionViewDetailCell.xib */; };
+		D499BFD925765E0800EF369E /* DetailCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D499BFD825765E0800EF369E /* DetailCollectionViewDataSource.swift */; };
+		D4C2F82B2575193D00F784CE /* DetailPullUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C2F82A2575193D00F784CE /* DetailPullUpViewController.swift */; };
+		D4C811652581ECA50097A3FA /* CacheData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C811642581ECA50097A3FA /* CacheData.swift */; };
 		D506A0E6CC326EDBF1BE4462 /* Pods_NaverMapA_NaverMapAUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEE572E6A770EBAC94B87E86 /* Pods_NaverMapA_NaverMapAUITests.framework */; };
 		E0059FA52563726900CE6BD7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0059FA42563726900CE6BD7 /* AppDelegate.swift */; };
 		E0059FA72563726900CE6BD7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0059FA62563726900CE6BD7 /* SceneDelegate.swift */; };
@@ -26,12 +42,46 @@
 		E0059FBF2563726B00CE6BD7 /* NaverMapATests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0059FBE2563726B00CE6BD7 /* NaverMapATests.swift */; };
 		E0059FCA2563726C00CE6BD7 /* NaverMapAUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0059FC92563726C00CE6BD7 /* NaverMapAUITests.swift */; };
 		E0059FEA2563741500CE6BD7 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = E0059FE92563741500CE6BD7 /* .swiftlint.yml */; };
+		E07AD780257F728700D07EAF /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07AD77F257F728700D07EAF /* UserInfo.swift */; };
+		E07AD788257F7FD100D07EAF /* AtomicArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07AD787257F7FD100D07EAF /* AtomicArray.swift */; };
+		E07AD79C2580592900D07EAF /* Unit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07AD79B2580592900D07EAF /* Unit.swift */; };
+		E07AD7B82580F64800D07EAF /* NaverMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07AD7B72580F64800D07EAF /* NaverMapView.swift */; };
+		E07AD7C32581087100D07EAF /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07AD7C22581087100D07EAF /* AlertManager.swift */; };
+		E07AD7CE25812C5000D07EAF /* BasicAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07AD7CD25812C5000D07EAF /* BasicAnimator.swift */; };
+		E07AD7FD2581DF3F00D07EAF /* VHCTextLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07AD7FC2581DF3F00D07EAF /* VHCTextLayer.swift */; };
+		E0825C5A258230D4001F0569 /* FetchButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0825C59258230D4001F0569 /* FetchButton.swift */; };
+		E0825C5F25824F7F001F0569 /* CABasicAnimation+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0825C5E25824F7F001F0569 /* CABasicAnimation+.swift */; };
+		E0825C64258266D3001F0569 /* AnimationKeyPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0825C63258266D3001F0569 /* AnimationKeyPath.swift */; };
+		E08C28E22584BFE000CC0259 /* AniTextLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08C28E12584BFE000CC0259 /* AniTextLayer.swift */; };
+		E08C28E82584C05700CC0259 /* String+UIsize.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08C28E72584C05700CC0259 /* String+UIsize.swift */; };
+		E08C28ED2584C07F00CC0259 /* String+subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08C28EC2584C07F00CC0259 /* String+subscript.swift */; };
+		E08C28F22584C0AD00CC0259 /* CAKeyframeAnimation+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08C28F12584C0AD00CC0259 /* CAKeyframeAnimation+.swift */; };
+		E08C291A2584FCDC00CC0259 /* StarAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08C29192584FCDB00CC0259 /* StarAnimator.swift */; };
+		E08C29B925872DEA00CC0259 /* PathMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08C29B825872DEA00CC0259 /* PathMaker.swift */; };
+		E08C29C12587311100CC0259 /* AnimationMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08C29C02587311100CC0259 /* AnimationMaker.swift */; };
+		E08C29C625874A0E00CC0259 /* AnimationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08C29C525874A0E00CC0259 /* AnimationType.swift */; };
+		E08C29CB25874A2000CC0259 /* AnimatorManagable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08C29CA25874A2000CC0259 /* AnimatorManagable.swift */; };
+		E08C29D025874A4000CC0259 /* AnimatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08C29CF25874A4000CC0259 /* AnimatorDelegate.swift */; };
+		E08C29E92587527300CC0259 /* MarkerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08C29E82587527300CC0259 /* MarkerInfo.swift */; };
+		E08C29F1258760D500CC0259 /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08C29F0258760D500CC0259 /* DependencyContainer.swift */; };
 		E0AE5425256F4AA700F799E1 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AE5424256F4AA700F799E1 /* MainViewModel.swift */; };
 		E0AE542D256F4BC800F799E1 /* Dynamic.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AE542C256F4BC800F799E1 /* Dynamic.swift */; };
 		E0AE5432256F4F0200F799E1 /* Cluster.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AE5431256F4F0200F799E1 /* Cluster.swift */; };
-		E0AE5437256F50D900F799E1 /* Clustering.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AE5436256F50D900F799E1 /* Clustering.swift */; };
+		E0AE5437256F50D900F799E1 /* Clusterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AE5436256F50D900F799E1 /* Clusterable.swift */; };
 		E0AE5442256F859B00F799E1 /* CoordinateBounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AE5441256F859B00F799E1 /* CoordinateBounds.swift */; };
+		E0AE5492257128A700F799E1 /* penaltyKmeans.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AE5491257128A700F799E1 /* penaltyKmeans.swift */; };
+		E0AE549C2571311A00F799E1 /* RemainKMeansTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AE549B2571311A00F799E1 /* RemainKMeansTest.swift */; };
+		E0AE54A3257133D900F799E1 /* penaltyKmeans.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AE5491257128A700F799E1 /* penaltyKmeans.swift */; };
+		E0AE54A7257133F500F799E1 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44558D9256615CF006D9D66 /* Place.swift */; };
+		E0AE54AB2571347000F799E1 /* JsonPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44558C925660D79006D9D66 /* JsonPlace.swift */; };
+		E0AE54B3257138D600F799E1 /* Clusterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AE5436256F50D900F799E1 /* Clusterable.swift */; };
+		E0AE54B7257138E900F799E1 /* CoordinateBounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AE5441256F859B00F799E1 /* CoordinateBounds.swift */; };
 		E0BCC6C625638972005AD87F /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BCC6C525638972005AD87F /* Environment.swift */; };
+		E0EFA218257496F100995B0C /* PlaceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44558CE256611DF006D9D66 /* PlaceProvider.swift */; };
+		E0EFA23D25754F0D00995B0C /* PenaltyCluster.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0EFA23C25754F0D00995B0C /* PenaltyCluster.swift */; };
+		E0EFA24B25754F2D00995B0C /* BasicCluster.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0EFA24A25754F2D00995B0C /* BasicCluster.swift */; };
+		E0EFA26025762CAC00995B0C /* PenaltyCluster.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0EFA23C25754F0D00995B0C /* PenaltyCluster.swift */; };
+		E0EFA26425762CC600995B0C /* Cluster.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AE5431256F4F0200F799E1 /* Cluster.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,17 +106,33 @@
 		40CAD620339B506C86FDA0AC /* Pods_NaverMapA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NaverMapA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		50126CE14920B1F628C98711 /* Pods-NaverMapA-NaverMapAUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NaverMapA-NaverMapAUITests.debug.xcconfig"; path = "Target Support Files/Pods-NaverMapA-NaverMapAUITests/Pods-NaverMapA-NaverMapAUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		87992EA48C88244E5F3BD1C3 /* Pods_NaverMapATests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NaverMapATests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		88937865257D3BC000A5B5C5 /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
+		8893786A257D415400A5B5C5 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
+		8893786B257D415400A5B5C5 /* SettingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingTableViewCell.xib; sourceTree = "<group>"; };
 		8898E854256D914C00CFE5B4 /* ScaleBasedClustering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleBasedClustering.swift; sourceTree = "<group>"; };
+		88A679FC257E7317004CA6C7 /* NaverMapAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverMapAPI.swift; sourceTree = "<group>"; };
+		88A67A01257E73AF004CA6C7 /* Geocoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geocoding.swift; sourceTree = "<group>"; };
+		88F1F54E258398EA001A7056 /* DetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCollectionViewCell.swift; sourceTree = "<group>"; };
 		96397F64EEFE1BC37729CE98 /* Pods-NaverMapA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NaverMapA.release.xcconfig"; path = "Target Support Files/Pods-NaverMapA/Pods-NaverMapA.release.xcconfig"; sourceTree = "<group>"; };
 		BEE572E6A770EBAC94B87E86 /* Pods_NaverMapA_NaverMapAUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NaverMapA_NaverMapAUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C216106B7FE5408B63595379 /* Pods-NaverMapATests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NaverMapATests.debug.xcconfig"; path = "Target Support Files/Pods-NaverMapATests/Pods-NaverMapATests.debug.xcconfig"; sourceTree = "<group>"; };
 		C6BD3042AD95BA3CF13B5BF8 /* Pods-NaverMapA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NaverMapA.debug.xcconfig"; path = "Target Support Files/Pods-NaverMapA/Pods-NaverMapA.debug.xcconfig"; sourceTree = "<group>"; };
-		D430320D2570663200BCEB54 /* KMeansClustering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMeansClustering.swift; sourceTree = "<group>"; };
-		C8D647D7256F66FB00E3BB14 /* MainViewController+NMFOverlayImageDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewController+NMFOverlayImageDataSource.swift"; sourceTree = "<group>"; };
+		C816202625789C8A00DF61C4 /* MarkerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkerFactory.swift; sourceTree = "<group>"; };
+		C87AE2B12582602400017EA5 /* GetMarkerColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMarkerColor.swift; sourceTree = "<group>"; };
+		C88B5CDB258740F1006F4133 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		C8C1FB49257F6D4200D98A92 /* UIView+Rendering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Rendering.swift"; sourceTree = "<group>"; };
+		C8D647D7256F66FB00E3BB14 /* MainViewController+NaverMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewController+NaverMap.swift"; sourceTree = "<group>"; };
+		D41830D5257842CF005AD9F0 /* MainViewController+PullUpViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewController+PullUpViewDelegate.swift"; sourceTree = "<group>"; };
 		D44558C925660D79006D9D66 /* JsonPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonPlace.swift; sourceTree = "<group>"; };
 		D44558CE256611DF006D9D66 /* PlaceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceProvider.swift; sourceTree = "<group>"; };
-		D44558D9256615CF006D9D66 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = SOURCE_ROOT; };
+		D44558D9256615CF006D9D66 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Place.swift; path = NaverMapA/Model/Place/Place.swift; sourceTree = SOURCE_ROOT; };
 		D44558E425661638006D9D66 /* NaverMapA.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NaverMapA.xcdatamodel; sourceTree = "<group>"; };
+		D44B6FC925783BD700E912BB /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		D499BFCB2575C40700EF369E /* DetailCollectionViewListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailCollectionViewListCell.xib; sourceTree = "<group>"; };
+		D499BFD22575C41400EF369E /* DetailCollectionViewDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailCollectionViewDetailCell.xib; sourceTree = "<group>"; };
+		D499BFD825765E0800EF369E /* DetailCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCollectionViewDataSource.swift; sourceTree = "<group>"; };
+		D4C2F82A2575193D00F784CE /* DetailPullUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPullUpViewController.swift; sourceTree = "<group>"; };
+		D4C811642581ECA50097A3FA /* CacheData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheData.swift; sourceTree = "<group>"; };
 		E0059FA12563726900CE6BD7 /* NaverMapA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NaverMapA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0059FA42563726900CE6BD7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E0059FA62563726900CE6BD7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,12 +148,38 @@
 		E0059FC92563726C00CE6BD7 /* NaverMapAUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverMapAUITests.swift; sourceTree = "<group>"; };
 		E0059FCB2563726C00CE6BD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E0059FE92563741500CE6BD7 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		E07AD77F257F728700D07EAF /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		E07AD787257F7FD100D07EAF /* AtomicArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtomicArray.swift; sourceTree = "<group>"; };
+		E07AD79B2580592900D07EAF /* Unit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unit.swift; sourceTree = "<group>"; };
+		E07AD7B72580F64800D07EAF /* NaverMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverMapView.swift; sourceTree = "<group>"; };
+		E07AD7C22581087100D07EAF /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
+		E07AD7CD25812C5000D07EAF /* BasicAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAnimator.swift; sourceTree = "<group>"; };
+		E07AD7FC2581DF3F00D07EAF /* VHCTextLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VHCTextLayer.swift; sourceTree = "<group>"; };
+		E0825C59258230D4001F0569 /* FetchButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchButton.swift; sourceTree = "<group>"; };
+		E0825C5E25824F7F001F0569 /* CABasicAnimation+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CABasicAnimation+.swift"; sourceTree = "<group>"; };
+		E0825C63258266D3001F0569 /* AnimationKeyPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationKeyPath.swift; sourceTree = "<group>"; };
+		E08C28E12584BFE000CC0259 /* AniTextLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AniTextLayer.swift; sourceTree = "<group>"; };
+		E08C28E72584C05700CC0259 /* String+UIsize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+UIsize.swift"; sourceTree = "<group>"; };
+		E08C28EC2584C07F00CC0259 /* String+subscript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+subscript.swift"; sourceTree = "<group>"; };
+		E08C28F12584C0AD00CC0259 /* CAKeyframeAnimation+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CAKeyframeAnimation+.swift"; sourceTree = "<group>"; };
+		E08C29192584FCDB00CC0259 /* StarAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarAnimator.swift; sourceTree = "<group>"; };
+		E08C29B825872DEA00CC0259 /* PathMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathMaker.swift; sourceTree = "<group>"; };
+		E08C29C02587311100CC0259 /* AnimationMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationMaker.swift; sourceTree = "<group>"; };
+		E08C29C525874A0E00CC0259 /* AnimationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationType.swift; sourceTree = "<group>"; };
+		E08C29CA25874A2000CC0259 /* AnimatorManagable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatorManagable.swift; sourceTree = "<group>"; };
+		E08C29CF25874A4000CC0259 /* AnimatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatorDelegate.swift; sourceTree = "<group>"; };
+		E08C29E82587527300CC0259 /* MarkerInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkerInfo.swift; sourceTree = "<group>"; };
+		E08C29F0258760D500CC0259 /* DependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
 		E0AE5424256F4AA700F799E1 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		E0AE542C256F4BC800F799E1 /* Dynamic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dynamic.swift; sourceTree = "<group>"; };
 		E0AE5431256F4F0200F799E1 /* Cluster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cluster.swift; sourceTree = "<group>"; };
-		E0AE5436256F50D900F799E1 /* Clustering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clustering.swift; sourceTree = "<group>"; };
+		E0AE5436256F50D900F799E1 /* Clusterable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clusterable.swift; sourceTree = "<group>"; };
 		E0AE5441256F859B00F799E1 /* CoordinateBounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateBounds.swift; sourceTree = "<group>"; };
+		E0AE5491257128A700F799E1 /* penaltyKmeans.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = penaltyKmeans.swift; sourceTree = "<group>"; };
+		E0AE549B2571311A00F799E1 /* RemainKMeansTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemainKMeansTest.swift; sourceTree = "<group>"; };
 		E0BCC6C525638972005AD87F /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		E0EFA23C25754F0D00995B0C /* PenaltyCluster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenaltyCluster.swift; sourceTree = "<group>"; };
+		E0EFA24A25754F2D00995B0C /* BasicCluster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicCluster.swift; sourceTree = "<group>"; };
 		EBA4CDE9A7CC6FCBCDA4598B /* Pods-NaverMapATests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NaverMapATests.release.xcconfig"; path = "Target Support Files/Pods-NaverMapATests/Pods-NaverMapATests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -142,20 +234,67 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C816202525789C6F00DF61C4 /* Marker */ = {
+			isa = PBXGroup;
+			children = (
+				C816202625789C8A00DF61C4 /* MarkerFactory.swift */,
+				E07AD7B72580F64800D07EAF /* NaverMapView.swift */,
+				C87AE2B12582602400017EA5 /* GetMarkerColor.swift */,
+				E08C29E82587527300CC0259 /* MarkerInfo.swift */,
+			);
+			path = Marker;
+			sourceTree = "<group>";
+		};
 		D429CFDF2565828B00B1EECA /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				D44558D9256615CF006D9D66 /* Place.swift */,
-				D44558E325661638006D9D66 /* NaverMapA.xcdatamodeld */,
-				D44558C925660D79006D9D66 /* JsonPlace.swift */,
-				D44558CE256611DF006D9D66 /* PlaceProvider.swift */,
-				D430320D2570663200BCEB54 /* KMeansClustering.swift */,
-				E0AE5431256F4F0200F799E1 /* Cluster.swift */,
-				E0AE5436256F50D900F799E1 /* Clustering.swift */,
-				8898E854256D914C00CFE5B4 /* ScaleBasedClustering.swift */,
-				E0AE5441256F859B00F799E1 /* CoordinateBounds.swift */,
+				E07AD77E257F727400D07EAF /* PropertyWrapper */,
+				C816202525789C6F00DF61C4 /* Marker */,
+				E0EFA25325754F6200995B0C /* Algorithm */,
+				E0EFA25225754F4000995B0C /* Place */,
+				E0EFA23B25754EFD00995B0C /* Cluster */,
+				D4C8115025812CBD0097A3FA /* AsyncFetcher */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		D4C2F82F257573F900F784CE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E08C28F62584C0F000CC0259 /* Layer */,
+				D499BFCB2575C40700EF369E /* DetailCollectionViewListCell.xib */,
+				D499BFD22575C41400EF369E /* DetailCollectionViewDetailCell.xib */,
+				8893786A257D415400A5B5C5 /* SettingTableViewCell.swift */,
+				8893786B257D415400A5B5C5 /* SettingTableViewCell.xib */,
+				E0825C59258230D4001F0569 /* FetchButton.swift */,
+				88F1F54E258398EA001A7056 /* DetailCollectionViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D4C8115025812CBD0097A3FA /* AsyncFetcher */ = {
+			isa = PBXGroup;
+			children = (
+				D4C811642581ECA50097A3FA /* CacheData.swift */,
+			);
+			path = AsyncFetcher;
+			sourceTree = "<group>";
+		};
+		D4FB0564258089F80078EE09 /* Animator */ = {
+			isa = PBXGroup;
+			children = (
+				E08C29CA25874A2000CC0259 /* AnimatorManagable.swift */,
+				E07AD7CD25812C5000D07EAF /* BasicAnimator.swift */,
+				E08C29192584FCDB00CC0259 /* StarAnimator.swift */,
+				E08C29C525874A0E00CC0259 /* AnimationType.swift */,
+				E08C29CF25874A4000CC0259 /* AnimatorDelegate.swift */,
+				E08C29B825872DEA00CC0259 /* PathMaker.swift */,
+				E08C29C02587311100CC0259 /* AnimationMaker.swift */,
+				E0825C63258266D3001F0569 /* AnimationKeyPath.swift */,
+				E0825C5E25824F7F001F0569 /* CABasicAnimation+.swift */,
+				E08C28F12584C0AD00CC0259 /* CAKeyframeAnimation+.swift */,
+			);
+			path = Animator;
 			sourceTree = "<group>";
 		};
 		E0059F982563726900CE6BD7 = {
@@ -186,8 +325,11 @@
 			children = (
 				E0AE5419256F48D800F799E1 /* Controller */,
 				E0AE5418256F48CE00F799E1 /* ViewModel */,
+				D4C2F82F257573F900F784CE /* View */,
 				D429CFDF2565828B00B1EECA /* Model */,
 				E0AE541A256F48F100F799E1 /* Util */,
+				D4FB0564258089F80078EE09 /* Animator */,
+				E08C28E62584C00D00CC0259 /* Extensions */,
 				E0059FA42563726900CE6BD7 /* AppDelegate.swift */,
 				E0059FA62563726900CE6BD7 /* SceneDelegate.swift */,
 				E0059FAA2563726900CE6BD7 /* Main.storyboard */,
@@ -202,6 +344,7 @@
 			isa = PBXGroup;
 			children = (
 				E0059FBE2563726B00CE6BD7 /* NaverMapATests.swift */,
+				E0AE549B2571311A00F799E1 /* RemainKMeansTest.swift */,
 				E0059FC02563726B00CE6BD7 /* Info.plist */,
 			);
 			path = NaverMapATests;
@@ -216,11 +359,42 @@
 			path = NaverMapAUITests;
 			sourceTree = "<group>";
 		};
+		E07AD77E257F727400D07EAF /* PropertyWrapper */ = {
+			isa = PBXGroup;
+			children = (
+				E07AD77F257F728700D07EAF /* UserInfo.swift */,
+				E07AD787257F7FD100D07EAF /* AtomicArray.swift */,
+				E07AD79B2580592900D07EAF /* Unit.swift */,
+			);
+			path = PropertyWrapper;
+			sourceTree = "<group>";
+		};
+		E08C28E62584C00D00CC0259 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C8C1FB49257F6D4200D98A92 /* UIView+Rendering.swift */,
+				E08C28E72584C05700CC0259 /* String+UIsize.swift */,
+				E08C28EC2584C07F00CC0259 /* String+subscript.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E08C28F62584C0F000CC0259 /* Layer */ = {
+			isa = PBXGroup;
+			children = (
+				E07AD7FC2581DF3F00D07EAF /* VHCTextLayer.swift */,
+				E08C28E12584BFE000CC0259 /* AniTextLayer.swift */,
+			);
+			path = Layer;
+			sourceTree = "<group>";
+		};
 		E0AE5418256F48CE00F799E1 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				E0AE5424256F4AA700F799E1 /* MainViewModel.swift */,
-				E0AE542C256F4BC800F799E1 /* Dynamic.swift */,
+				D44B6FC925783BD700E912BB /* DetailViewModel.swift */,
+				D499BFD825765E0800EF369E /* DetailCollectionViewDataSource.swift */,
+				E08C29F0258760D500CC0259 /* DependencyContainer.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -229,7 +403,11 @@
 			isa = PBXGroup;
 			children = (
 				E0059FA82563726900CE6BD7 /* MainViewController.swift */,
-				C8D647D7256F66FB00E3BB14 /* MainViewController+NMFOverlayImageDataSource.swift */,
+				C8D647D7256F66FB00E3BB14 /* MainViewController+NaverMap.swift */,
+				D41830D5257842CF005AD9F0 /* MainViewController+PullUpViewDelegate.swift */,
+				D4C2F82A2575193D00F784CE /* DetailPullUpViewController.swift */,
+				88937865257D3BC000A5B5C5 /* SettingTableViewController.swift */,
+				C88B5CDB258740F1006F4133 /* LaunchViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -237,9 +415,45 @@
 		E0AE541A256F48F100F799E1 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				E0AE542C256F4BC800F799E1 /* Dynamic.swift */,
+				88A679FC257E7317004CA6C7 /* NaverMapAPI.swift */,
 				E0BCC6C525638972005AD87F /* Environment.swift */,
+				E07AD7C22581087100D07EAF /* AlertManager.swift */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		E0EFA23B25754EFD00995B0C /* Cluster */ = {
+			isa = PBXGroup;
+			children = (
+				E0AE5431256F4F0200F799E1 /* Cluster.swift */,
+				E0EFA24A25754F2D00995B0C /* BasicCluster.swift */,
+				E0EFA23C25754F0D00995B0C /* PenaltyCluster.swift */,
+			);
+			path = Cluster;
+			sourceTree = "<group>";
+		};
+		E0EFA25225754F4000995B0C /* Place */ = {
+			isa = PBXGroup;
+			children = (
+				E0AE5441256F859B00F799E1 /* CoordinateBounds.swift */,
+				D44558D9256615CF006D9D66 /* Place.swift */,
+				D44558E325661638006D9D66 /* NaverMapA.xcdatamodeld */,
+				D44558C925660D79006D9D66 /* JsonPlace.swift */,
+				D44558CE256611DF006D9D66 /* PlaceProvider.swift */,
+				88A67A01257E73AF004CA6C7 /* Geocoding.swift */,
+			);
+			path = Place;
+			sourceTree = "<group>";
+		};
+		E0EFA25325754F6200995B0C /* Algorithm */ = {
+			isa = PBXGroup;
+			children = (
+				E0AE5436256F50D900F799E1 /* Clusterable.swift */,
+				8898E854256D914C00CFE5B4 /* ScaleBasedClustering.swift */,
+				E0AE5491257128A700F799E1 /* penaltyKmeans.swift */,
+			);
+			path = Algorithm;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -354,6 +568,9 @@
 				E0059FEA2563741500CE6BD7 /* .swiftlint.yml in Resources */,
 				E0059FB42563726B00CE6BD7 /* LaunchScreen.storyboard in Resources */,
 				E0059FB12563726B00CE6BD7 /* Assets.xcassets in Resources */,
+				D499BFCD2575C40700EF369E /* DetailCollectionViewListCell.xib in Resources */,
+				D499BFD42575C41400EF369E /* DetailCollectionViewDetailCell.xib in Resources */,
+				8893786D257D415400A5B5C5 /* SettingTableViewCell.xib in Resources */,
 				E0059FAC2563726900CE6BD7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -499,22 +716,60 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0825C5F25824F7F001F0569 /* CABasicAnimation+.swift in Sources */,
+				C8C1FB4A257F6D4200D98A92 /* UIView+Rendering.swift in Sources */,
+				D4C811652581ECA50097A3FA /* CacheData.swift in Sources */,
 				D44558CA25660D79006D9D66 /* JsonPlace.swift in Sources */,
-				D430320E2570663200BCEB54 /* KMeansClustering.swift in Sources */,
+				88937866257D3BC000A5B5C5 /* SettingTableViewController.swift in Sources */,
+				E07AD788257F7FD100D07EAF /* AtomicArray.swift in Sources */,
+				E07AD7C32581087100D07EAF /* AlertManager.swift in Sources */,
 				E0AE542D256F4BC800F799E1 /* Dynamic.swift in Sources */,
+				E08C28E22584BFE000CC0259 /* AniTextLayer.swift in Sources */,
 				E0059FA92563726900CE6BD7 /* MainViewController.swift in Sources */,
-				E0AE5437256F50D900F799E1 /* Clustering.swift in Sources */,
+				E08C29D025874A4000CC0259 /* AnimatorDelegate.swift in Sources */,
+				E08C29C12587311100CC0259 /* AnimationMaker.swift in Sources */,
+				8893786C257D415400A5B5C5 /* SettingTableViewCell.swift in Sources */,
+				E0EFA23D25754F0D00995B0C /* PenaltyCluster.swift in Sources */,
+				E0825C64258266D3001F0569 /* AnimationKeyPath.swift in Sources */,
+				C816202725789C8A00DF61C4 /* MarkerFactory.swift in Sources */,
+				88F1F54F258398EA001A7056 /* DetailCollectionViewCell.swift in Sources */,
+				E07AD7B82580F64800D07EAF /* NaverMapView.swift in Sources */,
+				E08C291A2584FCDC00CC0259 /* StarAnimator.swift in Sources */,
+				E07AD79C2580592900D07EAF /* Unit.swift in Sources */,
+				E0AE5437256F50D900F799E1 /* Clusterable.swift in Sources */,
+				E08C29CB25874A2000CC0259 /* AnimatorManagable.swift in Sources */,
+				E0AE5492257128A700F799E1 /* penaltyKmeans.swift in Sources */,
+				E0EFA24B25754F2D00995B0C /* BasicCluster.swift in Sources */,
+				C87AE2B22582602400017EA5 /* GetMarkerColor.swift in Sources */,
 				8898E855256D914C00CFE5B4 /* ScaleBasedClustering.swift in Sources */,
+				D499BFD925765E0800EF369E /* DetailCollectionViewDataSource.swift in Sources */,
+				E07AD7CE25812C5000D07EAF /* BasicAnimator.swift in Sources */,
+				88A67A02257E73AF004CA6C7 /* Geocoding.swift in Sources */,
+				E08C28ED2584C07F00CC0259 /* String+subscript.swift in Sources */,
 				E0059FA52563726900CE6BD7 /* AppDelegate.swift in Sources */,
-				C8D647D8256F66FB00E3BB14 /* MainViewController+NMFOverlayImageDataSource.swift in Sources */,
+				E08C29E92587527300CC0259 /* MarkerInfo.swift in Sources */,
+				C8D647D8256F66FB00E3BB14 /* MainViewController+NaverMap.swift in Sources */,
 				D44558E525661638006D9D66 /* NaverMapA.xcdatamodeld in Sources */,
+				D41830D6257842CF005AD9F0 /* MainViewController+PullUpViewDelegate.swift in Sources */,
 				E0059FA72563726900CE6BD7 /* SceneDelegate.swift in Sources */,
+				E08C29F1258760D500CC0259 /* DependencyContainer.swift in Sources */,
 				E0AE5432256F4F0200F799E1 /* Cluster.swift in Sources */,
+				E08C28E82584C05700CC0259 /* String+UIsize.swift in Sources */,
 				E0AE5442256F859B00F799E1 /* CoordinateBounds.swift in Sources */,
+				E08C29B925872DEA00CC0259 /* PathMaker.swift in Sources */,
+				E08C28F22584C0AD00CC0259 /* CAKeyframeAnimation+.swift in Sources */,
+				88A679FD257E7317004CA6C7 /* NaverMapAPI.swift in Sources */,
 				D44558DB256615CF006D9D66 /* Place.swift in Sources */,
+				C88B5CDC258740F1006F4133 /* LaunchViewController.swift in Sources */,
+				D44B6FCA25783BD700E912BB /* DetailViewModel.swift in Sources */,
 				D44558CF256611DF006D9D66 /* PlaceProvider.swift in Sources */,
+				E0825C5A258230D4001F0569 /* FetchButton.swift in Sources */,
+				E07AD7FD2581DF3F00D07EAF /* VHCTextLayer.swift in Sources */,
 				E0BCC6C625638972005AD87F /* Environment.swift in Sources */,
 				E0AE5425256F4AA700F799E1 /* MainViewModel.swift in Sources */,
+				E07AD780257F728700D07EAF /* UserInfo.swift in Sources */,
+				E08C29C625874A0E00CC0259 /* AnimationType.swift in Sources */,
+				D4C2F82B2575193D00F784CE /* DetailPullUpViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -522,7 +777,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0AE549C2571311A00F799E1 /* RemainKMeansTest.swift in Sources */,
+				E0AE54AB2571347000F799E1 /* JsonPlace.swift in Sources */,
 				E0059FBF2563726B00CE6BD7 /* NaverMapATests.swift in Sources */,
+				E0AE54B7257138E900F799E1 /* CoordinateBounds.swift in Sources */,
+				E0EFA26425762CC600995B0C /* Cluster.swift in Sources */,
+				E0EFA26025762CAC00995B0C /* PenaltyCluster.swift in Sources */,
+				E0AE54A3257133D900F799E1 /* penaltyKmeans.swift in Sources */,
+				E0AE54B3257138D600F799E1 /* Clusterable.swift in Sources */,
+				E0EFA218257496F100995B0C /* PlaceProvider.swift in Sources */,
+				E0AE54A7257133F500F799E1 /* Place.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

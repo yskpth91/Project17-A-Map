@@ -2,6 +2,11 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -64,5 +69,7 @@
 	</array>
 	<key>CLIENT_ID</key>
 	<string>$(CLIENT_ID)</string>
+	<key>CLIENT_SECRET</key>
+	<string>$(CLIENT_SECRET)</string>
 </dict>
 </plist>

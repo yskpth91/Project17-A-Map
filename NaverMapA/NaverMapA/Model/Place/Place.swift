@@ -20,6 +20,15 @@ public class Place: NSManagedObject {
         imageUrl = json.imageUrl
         category = json.category
     }
+    
+    func configure(latitude: Double, longitude: Double) {
+        id = ""
+        name = "사용자 지정 마커"
+        self.latitude = latitude
+        self.longitude = longitude
+        imageUrl = nil
+        category = ""
+    }
 }
 
 extension Place {
@@ -38,8 +47,13 @@ extension Place {
     func distanceTo(_ centroid: Cluster) -> Double {
         return sqrt(pow(latitude - centroid.latitude, 2) + pow(longitude - centroid.longitude, 2))
     }
+    
     func distanceTo(_ place: Place) -> Double {
         return sqrt(pow(latitude - place.latitude, 2) + pow(longitude - place.longitude, 2))
+    }
+    
+    func distanceTo(lat: Double, lng: Double) -> Double {
+        return sqrt(pow(latitude - lat, 2) + pow(longitude - lng, 2))
     }
 }
 

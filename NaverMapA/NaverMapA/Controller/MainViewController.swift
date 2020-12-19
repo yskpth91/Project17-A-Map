@@ -11,132 +11,277 @@ import CoreData
 
 class MainViewController: UIViewController {
     
-    var mapView: NMFMapView!
+    // MARK: - Properties
+    
+    var naverMapView: NaverMapView!
+    var mapView: NMFMapView { naverMapView.mapView }
+    var animationLayer: CALayer { naverMapView.animationLayer }
     var viewModel: MainViewModel?
-    var clusterMarkers = [NMFMarker]()
-    var markersAnimation: [UIViewPropertyAnimator] = [] // 추후 애니메이션을 제어하기 위한 배열
-    private lazy var dataProvider: PlaceProvider = {
+    lazy var dataProvider: PlaceProvider = {
         let provider = PlaceProvider.shared
-        provider.fetchedResultsController.delegate = self
         return provider
     }()
+    var pullUpVC: DetailPullUpViewController?
+    var fetchBtn: FetchButton!
+    var animator: BasicAnimator!
+    let container = DependencyContainer()
+    
+    @IBOutlet weak var settingButton: UIButton!
+    
+    // MARK: - ViewLifeCycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        viewModel = MainViewModel(algorithm: ScaleBasedClustering())
-        viewModel = MainViewModel(algorithm: KMeansClustering())
+        
+        guard let _ = NMFAuthManager.shared().clientId else {
+            AlertManager.shared.clientIdIsNil(controller: self)
+            return
+        }
+        setUpMapView()
+        setUpCoreData()
+        setUpOtherViews()
+        setupViewModel()
         bindViewModel()
-        setupMapView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.view.bringSubviewToFront(settingButton)
+        self.navigationController?.isNavigationBarHidden = true
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        let markerColor = GetMarkerColor.getColor(colorString: InfoSetting.markerColor)
+        let markerWidth = NMFMarker().iconImage.imageWidth * 1.4
+        let markerHeight = NMFMarker().iconImage.imageHeight * 1.4
+        let info = MarkerInfo(width: markerWidth,
+                              height: markerHeight,
+                              color: markerColor)
+        
+        viewModel?.clusteringAlgorithm = container.algorithm()
+        animator = container.animation(mapView: naverMapView, info: info)
+        animator.delegate = self
+        updateMapView()
+    }
+    
+    // MARK: - Initailize
+    
+    func setupViewModel() {
+        viewModel = MainViewModel(algorithm: container.algorithm())
+    }
+    
+    private func setUpMapView() {
+        naverMapView = NaverMapView(frame: view.frame)
+        naverMapView.mapView.addCameraDelegate(delegate: self)
+        naverMapView.naverMapDelegate = self
+        view.addSubview(naverMapView)
+    }
+    
+    private func setUpCoreData() {
         if dataProvider.objectCount == 0 {
             dataProvider.insert(completionHandler: handleBatchOperationCompletion)
         }
     }
     
-    func setupMapView() {
-        mapView = NMFMapView(frame: view.frame)
-        mapView.addCameraDelegate(delegate: self)
-        mapView.moveCamera(NMFCameraUpdate(position: NMFCameraPosition(NMGLatLng(lat: 37.5655271, lng: 126.9904267), zoom: 18)))
-        view.addSubview(mapView)
+    private func setUpOtherViews() {
+        settingButton.layer.cornerRadius = settingButton.bounds.size.width / 2.0
+        settingButton.layer.shadowColor = UIColor.black.cgColor
+        settingButton.layer.shadowOpacity = 0.4
+        settingButton.layer.shadowOffset = CGSize(width: 1, height: 1)
+        let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+        backBarButtonItem.tintColor = .label
+        self.navigationItem.backBarButtonItem = backBarButtonItem
+        setupFetchButton()
     }
     
-    func bindViewModel() {
-        if let viewModel = viewModel {
-            viewModel.markers.bind({ _ in
-                // rendering
-                DispatchQueue.main.async {
-                    for clusterMarker in self.clusterMarkers {
-                        clusterMarker.mapView = nil
-                    }
-                    self.clusterMarkers.removeAll()
-                    self.markerAnimation(clusterArray: viewModel.markers.value)
-                    for cluster in viewModel.markers.value {
-                        let lat = cluster.latitude
-                        let lng = cluster.longitude
-                        let marker = NMFMarker(position: NMGLatLng(lat: lat, lng: lng))
-                        marker.iconImage = NMF_MARKER_IMAGE_BLACK
-                        if cluster.places.count == 1 {
-                            marker.iconTintColor = .green
-                        } else {
-                            marker.iconTintColor = .red
-                        }
-                        marker.captionText = "\(cluster.places.count)"
-                        marker.zIndex = 1
-                        marker.mapView = self.mapView
-                        self.clusterMarkers.append(marker)
-                    }
-                }
-            })
-        }
-    }
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        guard let _ = NMFAuthManager.shared().clientId else {
-            let okAction = UIAlertAction(title: "OK", style: .destructive) { _ in
-                UIControl().sendAction(#selector(URLSessionTask.suspend), to: UIApplication.shared, for: nil)
-            }
-            showAlert(title: "에러", message: "ClientID가 없습니다.", preferredStyle: UIAlertController.Style.alert, action: okAction)
-            return
-        }
+    func setupFetchButton() {
+        let fetchWidth: CGFloat = 140
+        let fetchHeight: CGFloat = 40
+        fetchBtn = FetchButton(frame: CGRect(x: 0, y: 0, width: fetchWidth, height: fetchHeight))
+        view.addSubview(fetchBtn)
+        fetchBtn.addTarget(self, action: #selector(fetchDidTouched), for: .touchDown)
+        fetchBtn.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            fetchBtn.widthAnchor.constraint(equalToConstant: fetchWidth),
+            fetchBtn.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            fetchBtn.heightAnchor.constraint(equalToConstant: fetchHeight),
+            fetchBtn.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10)
+        ])
     }
     
     // MARK: - Methods
     
-    private func showAlert(title: String?, message: String?, preferredStyle: UIAlertController.Style, action: UIAlertAction) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(action)
-        present(alert, animated: false, completion: nil)
+    private func coreDataDeleteHandler(result: Error?) {
+        if result == nil {
+            updateMapView()
+        }
+    }
+    
+    private func coreDataInsertHandler(result: Place?) {
+        if let place = result {
+            self.viewModel?.fetchedPlaces.append(place)
+            updateMapView()
+        }
+    }
+    
+    func bindViewModel() {
+        guard let viewModel = viewModel else { return }
+        viewModel.animationMarkers.bind { (beforeClusters, afterClusters) in
+            DispatchQueue.main.async {
+                if self.animator.isAnimating { // 애니메이션중일때
+                    // 1. 애니메이션중인 레이어 모두 지우기
+                    self.animator.isAnimating = false // 새로운 마커를 그리지 않음
+                    self.animationLayer.sublayers?.forEach {
+                        $0.removeFromSuperlayer()
+                    }
+                    // 2. 맵뷰에 있는 모든 마커 삭제
+                    self.naverMapView.clusterMarkers.forEach {
+                        $0.mapView = nil
+                    }
+                    // 3. 현재 바운드에 맞는 마커 바로 맵뷰에 추가
+                    self.naverMapView.clusterObjects = afterClusters
+                    self.naverMapView.configureNewMarkers(afterClusters: afterClusters, markerColor: self.animator.markerInfo.color)
+                } else { // 애니메이션중이 아닐때
+                    self.naverMapView.deleteBeforeMarkers()
+                    self.naverMapView.clusterObjects = afterClusters
+                    var findLeaf = false
+                    for cluster in afterClusters {
+                        if cluster.latitude == self.naverMapView.selectedLeafMarker?.position.lat && cluster.longitude == self.naverMapView.selectedLeafMarker?.position.lng {
+                            findLeaf = true
+                            break
+                        }
+                    }
+                    if !findLeaf {
+                        self.naverMapView.selectedLeafMarker = nil
+                    }
+                    self.animator.animate(before: beforeClusters, after: afterClusters, type: .move)
+                }
+            }
+        }
+        
+        viewModel.markers.bind { afterClusters in
+            DispatchQueue.main.async {
+                self.naverMapView.deleteBeforeMarkers()
+                self.naverMapView.clusterObjects = afterClusters
+                self.animator.animate(before: [], after: afterClusters, type: .appear)
+                var findLeaf = false
+                for cluster in afterClusters {
+                    if cluster.latitude == self.naverMapView.selectedLeafMarker?.position.lat && cluster.longitude == self.naverMapView.selectedLeafMarker?.position.lng {
+                        findLeaf = true
+                        break
+                    }
+                }
+                if !findLeaf {
+                    self.naverMapView.selectedLeafMarker = nil
+                }
+            }
+        }
+    }
+    
+    @objc func fetchDidTouched() {
+        guard !fetchBtn.isAnimating else { return }
+        fetchBtn.animation()
+        DispatchQueue.main.asyncAfter(deadline: .now(), execute: {
+            let places = self.dataProvider.fetch(bounds: self.naverMapView.coordBounds)
+            self.viewModel?.fetchedPlaces = places
+            self.viewModel?.updatePlaces(places: places, bounds: self.naverMapView.coordBounds) {
+                DispatchQueue.main.async {
+                    if self.naverMapView.selectedLeafMarker == nil {
+                        return
+                    }
+                    var findLeaf = false
+                    for marker in self.naverMapView.clusterMarkers {
+                        if marker.position.lat == self.naverMapView.selectedLeafMarker?.position.lat && marker.position.lng == self.naverMapView.selectedLeafMarker?.position.lng {
+                            self.naverMapView.selectedLeafMarker = marker
+                            findLeaf = true
+                            break
+                        }
+                    }
+                    if !findLeaf {
+                        self.naverMapView.selectedLeafMarker = nil
+                    }
+                }
+            }
+        })
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.6, execute: {
+            self.fetchBtn.endAnimation()
+        })
     }
     
     private func handleBatchOperationCompletion(error: Error?) {
         if let error = error {
-            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-            showAlert(title: "Executing batch operation error!", message: error.localizedDescription, preferredStyle: .alert, action: okAction)
+            AlertManager.shared.coreDataBatchError(controller: self, message: error.localizedDescription)
         } else {
             dataProvider.resetAndRefetch()
         }
     }
     
-    private func markerAnimation(clusterArray: [Cluster]) {
-        //화면에 존재하던 마커들만이 아닌, 군집에 속한 마커들이 모두 애니메이션이 된다. Cluster 구조를 개선할 필요가 있음.
-        clusterArray.forEach { cluster in
-            let endPoint = mapView.projection.point(from: NMGLatLng(lat: cluster.latitude, lng: cluster.longitude))
-            cluster.places.forEach { place in
-                var startPoint = self.mapView.projection.point(from: NMGLatLng(lat: place.latitude, lng: place.longitude))
-                let markerView = self.view(with: NMFMarker())
-                startPoint.x -= (markerView.frame.width / 2)
-                startPoint.y -= markerView.frame.height
-                markerView.frame.origin = startPoint
-                self.mapView.addSubview(markerView)
-                let markerAnimation = UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 1, delay: 0, options: .curveLinear, animations: {
-                    markerView.frame.origin = CGPoint(x: endPoint.x - (markerView.frame.width / 2), y: endPoint.y - markerView.frame.height)
-                }, completion: { _ in
-                    markerView.removeFromSuperview()
-                })
-                markerAnimation.startAnimation()
-                //markerAnimation.stopAnimation(false)
-                //markerAnimation.finishAnimation(at: .current)
-            }
+    func showPullUpVC(with cluster: Cluster) {
+        guard self.pullUpVC == nil else {
+            pullUpVC?.cluster = cluster
+            return
         }
+        guard let pullUpVC: DetailPullUpViewController = storyboard?.instantiateViewController(identifier: DetailPullUpViewController.identifier) as? DetailPullUpViewController else { return }
+        self.addChild(pullUpVC)
+        let height = view.frame.height * 0.9
+        let width = view.frame.width
+        pullUpVC.view.frame = CGRect(x: 0, y: view.frame.maxY, width: width, height: height)
+        self.view.addSubview(pullUpVC.view)
+        pullUpVC.didMove(toParent: self)
+        self.pullUpVC = pullUpVC
+        self.pullUpVC?.cluster = cluster
+        self.pullUpVC?.delegate = self
     }
 }
 
-extension MainViewController: NSFetchedResultsControllerDelegate {
-    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+extension MainViewController {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        animationLayer.sublayers?.forEach {
+            $0.removeFromSuperlayer()
+        }
+        viewModel?.queue.cancelAllOperations()
+        
+        guard !fetchBtn.isAnimating else { return }
+        fetchBtn.removeFromSuperview()
+        fetchBtn = nil
+        setupFetchButton()
     }
 }
 
-extension MainViewController: NMFMapViewCameraDelegate {
+extension MainViewController: NaverMapViewDelegate {
+    func naverMapView(_ mapView: NaverMapView, markerDidSelected cluster: Cluster) {
+        self.showPullUpVC(with: cluster)
+    }
     
-    func mapViewCameraIdle(_ mapView: NMFMapView) {
-        let coordBounds = mapView.projection.latlngBounds(fromViewBounds: UIScreen.main.bounds)
-        DispatchQueue.global().async {
-            let bounds = CoordinateBounds(southWestLng: coordBounds.southWestLng,
-                                          northEastLng: coordBounds.northEastLng,
-                                          southWestLat: coordBounds.southWestLat,
-                                          northEastLat: coordBounds.northEastLat)
-            
-            let places = self.dataProvider.fetch(bounds: bounds)
-            self.viewModel?.updatePlaces(places: places, bounds: bounds)
+    func naverMapView(_ mapView: NaverMapView, markerWillAdded latlng: NMGLatLng) {
+        let title = "마커 추가"
+        let message = "마커를 추가하시겠습니까"
+        let okHandler: (UIAlertAction) -> Void = { [weak self] _ in
+            guard let self = self else { return }
+            self.dataProvider.insertPlace(latitide: latlng.lat, longitude: latlng.lng, completionHandler: self.coreDataInsertHandler)
         }
+        AlertManager.shared.okCancel(controller: self, title: title, message: message, okHandler: okHandler, cancelHandler: nil)
+    }
+    
+    func naverMapView(_ mapView: NaverMapView, markerWillDeleted place: Place) {
+        let title = "마커 삭제"
+        let message = "마커를 삭제하시겠습니까"
+        let okHandler: (UIAlertAction) -> Void = { [weak self] _ in
+            guard let self = self else { return }
+            self.dataProvider.delete(object: place, completionHandler: self.coreDataDeleteHandler)
+        }
+        AlertManager.shared.okCancel(controller: self, title: title, message: message, okHandler: okHandler, cancelHandler: nil)
+    }
+}
+
+extension MainViewController: AnimatorDelegate {
+    func animator(_ animator: AnimatorManagable, didAppeared cluster: Cluster, color: UIColor) {
+        self.naverMapView.configureNewMarker(afterCluster: cluster, markerColor: color)
+    }
+    
+    func animator(_ animator: AnimatorManagable, didMoved clusters: [Cluster], color: UIColor) {
+        self.naverMapView.configureNewMarkers(afterClusters: clusters, markerColor: color)
     }
 }
